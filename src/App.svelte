@@ -42,6 +42,11 @@
 		//updated
 		//launch
 		// rust doesn't like \ for some reason so quick hack
+		const sandboxieexists =  await invoke('exists', { path: "C:/Program Files/Sandboxie-Plus/Start.exe"});
+		if (sandboxieexists === true){
+			await invoke('exec', {exe:"C:/\"Program Files\"/Sandboxie-Plus/Start.exe "+dataDirPath.replace(/\\/g, '/')+"MeteoritePlayer/RobloxPlayerBetaRaw.exe -a \"mete0r.xyz/login/Negotiate\" -j \"http://mete0r.xyz/game/placelauncher?name="+url_to_open[0]+"&auth="+url_to_open[1]+"\" -t \"ticket\""});
+			exit(1);
+		}
 		await invoke('exec', {exe:dataDirPath.replace(/\\/g, '/')+"MeteoritePlayer/RobloxPlayerBetaRaw.exe -a \"mete0r.xyz/login/Negotiate\" -j \"http://mete0r.xyz/game/placelauncher?name="+url_to_open[0]+"&auth="+url_to_open[1]+"\" -t \"ticket\""});
 		exit(1);
 	}
@@ -59,6 +64,11 @@
 	  if (releaseexists === true){
 		await invoke('removefile', {file:dataDirPath+'release.zip'});
 	  }
+	  const sandboxieexists =  await invoke('exists', { path: "C:/Program Files/Sandboxie-Plus/Start.exe"});
+		if (sandboxieexists === true){
+			await invoke('exec', {exe:"C:/\"Program Files\"/Sandboxie-Plus/Start.exe "+dataDirPath.replace(/\\/g, '/')+"MeteoritePlayer/RobloxPlayerBetaRaw.exe -a \"mete0r.xyz/login/Negotiate\" -j \"http://mete0r.xyz/game/placelauncher?name="+url_to_open[0]+"&auth="+url_to_open[1]+"\" -t \"ticket\""});
+			exit(1);
+		}
 	  await invoke('exec', {exe:dataDirPath.replace(/\\/g, '/')+"MeteoritePlayer/RobloxPlayerBetaRaw.exe -a \"mete0r.xyz/login/Negotiate\" -j \"http://mete0r.xyz/game/placelauncher?name="+url_to_open[0]+"&auth="+url_to_open[1]+"\" -t \"ticket\""});
 	  exit(1);
 }
