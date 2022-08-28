@@ -25,7 +25,7 @@
         exit(1);
        }
        var url_to_open = matches.args.first.value[1]
-       url_to_open = url_to_open.replace("meteorite-new://","")
+       url_to_open = url_to_open.replace("meteorite-launch://","")
       url_to_open = url_to_open.replace('/',"")
       url_to_open = url_to_open.split('[') // this will turn it into a array so we can have auth and placeid different
 	  let dataDirPath = await dataDir();

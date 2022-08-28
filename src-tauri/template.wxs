@@ -110,8 +110,8 @@
                 <RegistryKey Root="HKCU" Key="Software\\{{{manufacturer}}}\\{{{product_name}}}">
                     <RegistryValue Name="InstallDir" Type="string" Value="[INSTALLDIR]" KeyPath="yes" />
                 </RegistryKey>
-                <RegistryKey Root="HKCR" Key="meteorite-new">
-                    <RegistryValue Type="string" Value="meteorite-new" />
+                <RegistryKey Root="HKCR" Key="meteorite-launch">
+                    <RegistryValue Type="string" Value="meteorite-launch" />
                     <RegistryValue Name="URL Protocol" Type="string" Value=""/>
                     <RegistryKey Key="shell">
                         <RegistryKey Key="open">
