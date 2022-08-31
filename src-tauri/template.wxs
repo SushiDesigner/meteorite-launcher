@@ -110,13 +110,13 @@
                 <RegistryKey Root="HKCU" Key="Software\\{{{manufacturer}}}\\{{{product_name}}}">
                     <RegistryValue Name="InstallDir" Type="string" Value="[INSTALLDIR]" KeyPath="yes" />
                 </RegistryKey>
-                <RegistryKey Root="HKCR" Key="meteorite-launch">
-                    <RegistryValue Type="string" Value="meteorite-launch" />
+                                <RegistryKey Root="HKCR" Key="meteorite-launch">
+                    <RegistryValue Type="string" Value="URL:meteorite-launch" />
                     <RegistryValue Name="URL Protocol" Type="string" Value=""/>
                     <RegistryKey Key="shell">
-                        <RegistryKey Key="open">
+                        <RegistryKey Key="Open">
                             <RegistryKey Key="command">
-                                <RegistryValue Type="string" Value='{{{app_exe_source}}} y "%1"'/>
+                                <RegistryValue Type="string" Value='[INSTALLDIR]Meteorite.exe y %1'/>
                             </RegistryKey>
                         </RegistryKey>
                     </RegistryKey>
@@ -160,6 +160,7 @@
 							   Value="1"
 							   KeyPath="yes" />
             </Component>
+            
         </DirectoryRef>
 
         <DirectoryRef Id="ApplicationProgramsFolder">

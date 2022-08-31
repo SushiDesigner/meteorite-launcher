@@ -17,6 +17,12 @@
 	 import { exit } from '@tauri-apps/api/process';
      import { dataDir } from '@tauri-apps/api/path';
 	 import { fetch } from '@tauri-apps/api/http';
+	 const pub = `-----BEGIN PUBLIC KEY-----
+MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgHggU4nE398eHvM8ZLVLkTBuScf5
+rIpqeeBdvwErxEYsAdrn55tgwN9t09BMJPapngGrbq+7K0g0nxyolZuBKwsv+8OE
+5ZIYC8k6t282bLYelDKmwHU+tfnMS80x5I/XIJXBkAtj2ZYgk0dCtqtsHZlyBUu2
+9wASD48oCaaEnre7AgMBAAE=
+-----END PUBLIC KEY-----`
 	async function main() {
 	 const matches = await getMatches();
        if (matches.args.first.value === false){
