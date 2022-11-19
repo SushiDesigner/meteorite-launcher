@@ -34,8 +34,55 @@ rIpqeeBdvwErxEYsAdrn55tgwN9t09BMJPapngGrbq+7K0g0nxyolZuBKwsv+8OE
        url_to_open = url_to_open.replace("meteorite-launch://","")
       url_to_open = url_to_open.replace('/',"")
       url_to_open = url_to_open.split('[') // this will turn it into a array so we can have auth and placeid different
+	  // url to open array
+	  // 0 = placeid to open
+	  // 1 = auth token
+	  // 2 = version to open
+	  
 	  let dataDirPath = await dataDir();
-	  const exists = await invoke('exists', { path: dataDirPath+'MeteoritePlayer/RobloxPlayerBetaRaw.exe'});
+	  
+	  
+	   if (url_to_open[2] != "2016"){
+		dataDirPath = dataDirPath + "MeteoritePlayer" +url_to_open[2]
+		// legacy version
+		const exists = await invoke('exists', { path: dataDirPath+'/RobloxPlayerBeta.exe'});
+		if (exists === true){
+		// meteorite already installed
+		const hash = await fetch('http://mete0r.xyz/assets/hash'+url_to_open[2]+'.txt', {
+  			method: 'GET',
+ 			 timeout: 30,
+			 responseType: 2
+			});
+	const currenthash = await invoke('hash', {path: dataDirPath+'/RobloxPlayerBeta.exe'});
+	if (hash.data === currenthash){
+		//updated
+		//launch
+		// rust doesn't like \ for some reason so quick hack
+
+		await invoke('exec', {exe:dataDirPath.replace(/\\/g, '/')+"/RobloxPlayerBeta.exe -a \"http://www.mete0r.xyz/\" -j \"http://www.mete0r.xyz/game/"+url_to_open[2]+"/join?placeid="+url_to_open[0]+"&auth="+url_to_open[1]+"\" -t \"ticket\""});
+		exit(1);
+	}
+
+
+
+	  }
+	  // download and extract if it isn't already installed or update
+	  document.getElementById('text').innerHTML = "Downloading"
+      await invoke('download_file', { url: 'http://mete0r.xyz/assets/release'+url_to_open[2]+'.zip',path: dataDirPath+'release'+url_to_open[2]+'.zip'});
+	  document.getElementById('text').innerHTML = "Extracting"
+	  await invoke('extract', { path: dataDirPath+'release'+url_to_open[2]+'.zip',extracto: dataDirPath});
+	  document.getElementById('text').innerHTML = "Done!"
+	  const releaseexists = await invoke('exists', { path: dataDirPath+'release'+url_to_open[2]+'.zip'});
+	  if (releaseexists === true){
+		await invoke('removefile', {file:dataDirPath+'release'+url_to_open[2]+'.zip'});
+	  }
+	  await invoke('exec', {exe:dataDirPath.replace(/\\/g, '/')+"/RobloxPlayerBeta.exe -a \"http://www.mete0r.xyz/\" -j \"http://www.mete0r.xyz/game/"+url_to_open[2]+"/join?placeid="+url_to_open[0]+"&auth="+url_to_open[1]+"\" -t \"ticket\""});
+	  exit(1);
+
+	   }
+
+
+	   const exists = await invoke('exists', { path: dataDirPath+'MeteoritePlayer/RobloxPlayerBetaRaw.exe'});
 	  if (exists === true){
 		// meteorite already installed
 		const hash = await fetch('http://mete0r.xyz/assets/hash.txt', {

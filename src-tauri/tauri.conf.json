@@ -9,7 +9,7 @@
   },
   "package": {
     "productName": "Meteorite",
-    "version": "0.1.0"
+    "version": "0.4.0"
   },
   "tauri": {
     "allowlist": {
@@ -47,6 +47,9 @@
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
+        "webviewInstallMode": {
+          "type": "embedBootstrapper"
+        },
         "wix":{
           "template":"template.wxs"
         }
