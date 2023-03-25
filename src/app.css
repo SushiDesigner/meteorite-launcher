@@ -2071,7 +2071,7 @@ html {
 
 .progress-primary::-moz-progress-bar {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--p) / var(--tw-bg-opacity));
+  background-color: rgb(212 22 60)
 }
 
 .progress:indeterminate::after {
@@ -2090,7 +2090,7 @@ html {
 
 .progress-primary:indeterminate::after {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--p) / var(--tw-bg-opacity));
+  background-color: rgb(212 22 60)
 }
 
 .progress::-webkit-progress-bar {
@@ -2107,7 +2107,7 @@ html {
 
 .progress-primary::-webkit-progress-value {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--p) / var(--tw-bg-opacity));
+  background-color: rgb(212 22 60)
 }
 
 @-webkit-keyframes progress-loading {
