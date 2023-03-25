@@ -25,9 +25,9 @@
      import { dataDir } from '@tauri-apps/api/path';
 	 import { fetch } from '@tauri-apps/api/http';
 	 import { platform } from '@tauri-apps/api/os';
-	 const platformName = await platform();
 	async function main() {
-	 const matches = await getMatches();
+	const platformName = await platform();
+	const matches = await getMatches();
        if (matches.args.first.value === false){
         // launched without args
         //message("Join on website please.", "Info");
