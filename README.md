@@ -18,4 +18,4 @@ Uses daisyui and tailwindcss for the simple ui
 
 **GPL License**
 
-##This is really old and was used when tauri wasn't even fully out yet soooo not reccommended this is just ded lol.
+## This is really old and was used when tauri wasn't even fully out yet soooo not reccommended this is just ded lol.
